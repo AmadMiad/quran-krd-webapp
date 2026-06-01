@@ -34,7 +34,7 @@ export function AudioPlayer({ onVerseChange }) {
     // Note: Replace this with your dynamic JSON fetch later.
     // Notice verses 4 and 5 are 'null' to simulate merged audio.
     const paddedId = String(id).padStart(3, '0');
-    const kurdishAudioSrc = `http://download.quran.islamway.net/quran3/442/10652/48/${[paddedId]}.mp3`; 
+    const kurdishAudioSrc = `https://download.tvquran.com/download/recitations/343/266/${[paddedId]}.mp3`; 
 
     // ==========================================
     // 1. HELPERS (Declared first to avoid "hoisting" errors)

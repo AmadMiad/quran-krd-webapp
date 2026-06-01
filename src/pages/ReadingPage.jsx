@@ -16,7 +16,7 @@ export function ReadingPage() {
 
     useEffect(() => {
         // This single API call fetches BOTH Arabic (index 0) and Kurdish (index 1)
-        fetch(`http://api.alquran.cloud/v1/surah/${id}/editions/quran-uthmani,ku.asan`)
+        fetch(`https://api.alquran.cloud/v1/surah/${id}/editions/quran-uthmani,ku.asan`)
         .then(response => response.json())
         .then(data => {
             console.log('Data loaded:', data);

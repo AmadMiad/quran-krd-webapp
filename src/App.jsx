@@ -7,7 +7,7 @@ function App() {
 const [surah, setSurah] = useState([]);
 
 useEffect(() => {
-  fetch('http://api.alquran.cloud/v1/surah')
+  fetch('https://api.alquran.cloud/v1/surah')
   .then(response => response.json())
   .then(data => {
     console.log('Data loaded:', data);
