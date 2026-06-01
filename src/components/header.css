@@ -1,0 +1,10 @@
+/* --- 3. Header Styling --- */
+.main-header {
+    width: 100%; /* Forces header to touch both edges */
+    background-color: #fdf5e6;
+    padding: 1.5rem 0;
+    text-align: center;
+    border-bottom: 4px solid #c5a059;
+    box-shadow: rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}

@@ -1,0 +1,196 @@
+/* --- 1. THE REACT/VITE FIX (Crucial Step) --- */
+/* This forces the root container to actually fill your screen */
+html, body, #root {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevents horizontal scrollbar */
+}
+
+/* --- 2. Global Variables & Reset --- */
+:root {
+    --bg-color-top: #0f4c3a;     
+    --bg-color-bottom: #082b21;  
+    --card-bg: #fffbf0;          
+    --header-bg: #fdf5e6;        
+    --gold-accent: #c5a059;      
+    --text-color: #0f4c3a;       
+    --sub-text-color: #5a7d70;
+    --shadow-soft: 0 4px 6px rgba(0,0,0,0.2);
+    --shadow-hard: 0 12px 24px rgba(0,0,0,0.35);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Amiri', serif; 
+    background: radial-gradient(circle at center, var(--bg-color-top), var(--bg-color-bottom));
+    min-height: 0;
+    color: var(--text-color);
+}
+
+
+
+.main-header h1 {
+    font-family: 'Libre Baskerville', serif;
+    color: var(--gold-accent);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* --- 4. Main Container --- */
+.container {
+    width: 90%;              /* Takes up 90% of the screen */
+    max-width: 1400px;       /* Stops growing after 1400px */
+    margin: 0 auto;          /* CENTERS the container horizontally */
+    padding-bottom: 50px;
+}
+
+/* --- 5. Grid System (Centered) --- */
+.surah-grid {
+    display: grid;
+    gap: 30px;
+    width: 100%;
+    
+    /* Responsive Columns */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+    
+    /* FIX: This ensures if you have few cards, they stay in center */
+    justify-content: center; 
+}
+
+/* --- 6. Card Styling --- */
+.surah-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 8px; 
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    border: 1px solid #e0d0b0;
+    min-height: 320px; /* Taller cards for better look */
+    
+    /* Ensure card fills its grid slot */
+    width: 100%; 
+}
+
+.surah-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hard);
+}
+
+.card-inner {
+    border: 2px solid var(--gold-accent);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    background: linear-gradient(135deg, #fffbf0 0%, #fff6e0 100%);
+    text-align: center;
+}
+
+/* --- Card Details --- */
+.card-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.number-badge {
+    background: linear-gradient(145deg, #e6c885, #c5a059);
+    color: #fff;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.revelation {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gold-accent);
+    font-weight: bold;
+    background: rgba(197, 160, 89, 0.15); 
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 15px 0;
+}
+
+.english-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.arabic-name {
+    font-family: 'Scheherazade New', serif;
+    font-size: 2.4rem;
+    color: var(--gold-accent);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.meaning {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--sub-text-color);
+    margin: 0;
+}
+
+.card-bottom {
+    width: 100%;
+    border-top: 1px solid rgba(197, 160, 89, 0.3);
+    padding-top: 12px;
+}
+
+.verses {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* --- Decoration Corners --- */
+.decoration-corner {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 18px;
+    height: 18px;
+    border-top: 3px solid var(--gold-accent);
+    border-right: 3px solid var(--gold-accent);
+    opacity: 0.5;
+}
+
+.card-inner::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    width: 18px;
+    height: 18px;
+    border-bottom: 3px solid var(--gold-accent);
+    border-left: 3px solid var(--gold-accent);
+    opacity: 0.5;
+}
