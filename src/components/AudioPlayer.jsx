@@ -62,7 +62,7 @@ export function AudioPlayer({ onVerseChange }) {
 
     // EFFECT: Fetch Reciters List on Load
     useEffect(() => {
-        fetch('http://api.alquran.cloud/v1/edition/format/audio')
+        fetch('https://api.alquran.cloud/v1/edition/format/audio')
             .then(response => response.json())
             .then(data => {
                 setReciters(data.data);
@@ -201,7 +201,7 @@ export function AudioPlayer({ onVerseChange }) {
         }
 
         // 1. Fetch Arabic Audio API
-        const fetchArabic = fetch(`http://api.alquran.cloud/v1/surah/${id}/${selectedReciter}`).then(res => res.json());
+        const fetchArabic = fetch(`https://api.alquran.cloud/v1/surah/${id}/${selectedReciter}`).then(res => res.json());
         
         // 2. Fetch Your Local Kurdish Timestamps
         // If your id is "1", this fetches "/timestamps/1.json" from your public folder
